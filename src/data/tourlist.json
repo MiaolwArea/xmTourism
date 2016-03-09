@@ -1,0 +1,40 @@
+{
+    "err": 0,
+    "msg": "",
+    "data": {
+    	"num": 1, 
+		"tourlist": [{
+			"id": 1,
+			"title": "鼓浪屿",
+			"activity": "今日可用",
+			"description": "厦门海上花园岛-鼓浪屿跟团3日游(含接送-休闲享受)",
+			"sales": 30,
+			"price": 27,
+			"image": "images/tourist-1.jpg"
+		}, {
+			"id": 2,
+			"title": "1鼓浪屿",
+			"activity": "今日可用",
+			"description": "2厦门海上花园岛-鼓浪屿跟团3日游(含接送-休闲享受)",
+			"sales": 30,
+			"price": 27,
+			"image": "images/tourist-1.jpg"
+		}, {
+			"id": 3,
+			"title": "2鼓浪屿",
+			"activity": "今日可用",
+			"description": "3厦门海上花园岛-鼓浪屿跟团3日游(含接送-休闲享受)",
+			"sales": 30,
+			"price": 27,
+			"image": "images/tourist-1.jpg"
+		}, {
+			"id": 4,
+			"title": "3鼓浪屿",
+			"activity": "今日可用",
+			"description": "4厦门海上花园岛-鼓浪屿跟团3日游(含接送-休闲享受)",
+			"sales": 30,
+			"price": 27,
+			"image": "images/tourist-1.jpg"
+		}]
+	}
+}

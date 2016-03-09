@@ -1,0 +1,35 @@
+{
+  "name": "xmtoursim",
+  "description": "Xiamen Travel, online booking, attractions Recommended",
+  "main": "gulpfile.js",
+  "authors": [
+    "MLW"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "toursim",
+    "ticket",
+    "recommended",
+    "sites"
+  ],
+  "moduleType": [
+    "amd",
+    "es6",
+    "globals",
+    "node",
+    "yui"
+  ],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}

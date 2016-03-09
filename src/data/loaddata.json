@@ -1,0 +1,36 @@
+{
+	"err": 0,
+    "msg": "",
+    "data": {
+		"num": 2, 
+		"data": [{
+			"id": 1,
+			"title": "厦门旅游最新消息",
+			"activity": "今日可用",
+			"offered": 30,
+			"price": 27,
+			"image": "images/tourist-1.jpg"
+		}, {
+			"id": 2,
+			"title": "厦门旅游最新消息",
+			"activity": "今日可用",
+			"offered": 30,
+			"price": 27,
+			"image": "images/tourist-1.jpg"
+		}, {
+			"id": 3,
+			"title": "厦门旅游最新消息",
+			"activity": "今日可用",
+			"offered": 30,
+			"price": 27,
+			"image": "images/tourist-1.jpg"
+		}, {
+			"id": 4,
+			"title": "厦门旅游最新消息",
+			"activity": "今日可用",
+			"offered": 30,
+			"price": 27,
+			"image": "images/tourist-1.jpg"
+		}]
+	}
+}
