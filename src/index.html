@@ -20,7 +20,7 @@
 	<script type="text/javascript" src="http://api.map.baidu.com/getscript?v=2.0&ak=GKjVLKFYCjItmN8Ubcs22zea&services=&t=20151113040005" class="ng-scope"></script>
 </head>
 <body>
-	<div ui-view></div>
+	<div class="{{IsShow}}" ui-view></div>
 	<footer id="page-footer">
 		<p>Copyright  © 2015厦门旅游</p>
 		<p>技术支持：厦门易尔通网络科技有限公司</p>
@@ -40,11 +40,18 @@
 	<!-- build:js libs/angular-ui-router.js -->
     <script src="libs/angular/angular-ui-router.js"></script>
 	<!-- endbuild -->
+	<!-- build:js libs/angular-animate.js -->
+    <script src="libs/angular-animate/angular-animate.min.js"></script>
+	<!-- endbuild -->
+	<!-- build:js libs/angular-touch.js -->
+    <script src="libs/angular-touch/angular-touch.min.js"></script>
+	<!-- endbuild -->
 	<!-- build:js js/main.min.js -->
 	<script type="text/javascript" src="js/app.js"></script>
 	<script type="text/javascript" src="js/directive.js"></script>
 	<script type="text/javascript" src="js/controllers.js"></script>
 	<script type="text/javascript" src="js/services.js"></script>
+	<script type="text/javascript" src="js/filters.js"></script>
 	<!-- endbuild -->
 </body>
 </html>

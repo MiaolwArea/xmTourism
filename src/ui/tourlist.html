@@ -1,0 +1,48 @@
+<div id="tourlist" ng-controller="TourListCtrl">
+	<div class="search">
+		<div class="container seach-content">
+			<div class="input-group pr">
+				<i class="iconfont icon-sousuo"></i>
+		    	<input type="text" class="form-control" ng-model="searchctxt" placeholder="输入内容...">
+		    	<span class="input-group-btn">
+		    		<button class="btn btn-default" type="button" ng-click="SearchResult()">搜索</button>
+		    	</span>
+		    	<pre ng-show="searchctxt">
+		    		<ul class="searchctxt-list list-group">
+		    			<li class="list-group-item" ng-reapt="result in results"><a ui-sref="tourdetail({Id:result.id})">{{result.name}}</a></li>
+		    		</ul>
+		    	</pre>
+		    </div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="tourcollection">
+			<div ng-if="IsData" class="media" ng-repeat="data in tourlist">
+				<a ui-sref="tourdetail({Id:data.id})">
+				  	<div class="media-left media-middle">
+					    <div class="list-pic">
+					      	<img class="media-object" src="{{data.image}}" alt="{{data.title}}">
+							<div class="aside-r green">{{data.activity}}</div>
+					    </div>
+				  	</div>
+				  	<div class="media-body">
+					    <h4 class="media-heading">{{data.title}}</h4>
+					    <p>{{data.description|cut:true:20:' ...'}}</p>
+					    <div class="pirce">
+					    	<div class="p-l fl">月销：{{data.sales}}</div>
+					    	<div class="p-r fr"><span>￥{{data.price}}</span>起</div>
+					    </div>
+				  	</div>
+			  	</a>
+			</div>
+			<a ng-show="IsShow" loading howToLoad="loadTourListInfo" class="more text-center"><div href="">查看更多</div><div class="arrow-r"></div></a>	
+			<nav ng-show="IsShow">
+				<ul class="pager">
+					<li ng-class="{'disabled': num==1}" class="previous"><a loading howToLoad="loadInfo('prev')"><span aria-hidden="true">&larr;</span>上一页</a></li>
+					<li class="next"><a loading howToLoad="loadInfo('next')">下一页 <span aria-hidden="true">&rarr;</span></a></li>
+				</ul>
+			</nav>
+			<backTop></backTop>	
+		</div>
+	</div>
+</div>

@@ -1,0 +1,36 @@
+<div id="tourdetaillist" ng-controller="TourDetailCtrl">
+	<div class="jumbotron tourdetail-header">
+		<img src="./images/tourdetail-1.jpg" alt="">
+	</div>
+	<div class="container">
+		<div class="meida-video"></div>
+		<div class="detail-content">
+			<audio controls="controls" loop="loop" autoplay="autoplay" ng-src="{{tourdetail.videourl}}" type="audio/mpeg"></audio>
+			<h3>景点介绍<small>{{tourdetail.smalltitle}}</small></h3>
+			<div class="content" ng-bind-html="tourdetail.content|to_trusted">
+			</div>
+		</div>
+		<div class="well ticket">
+			<div class="row">
+				<div class="col-xs-9">
+					<h3>{{tourdetail.ticket_name}}</h3>
+					<p>{{tourdetail.ticket_description}}</p>
+					<a ng-click="ticketNotice()">购票须知>></a>
+				</div>
+				<div class="col-xs-3">
+				<div class="ticket-pirce pr">
+					<a class="middle">
+						<span>￥{{tourdetail.ticket_pirce}}</span><span>起</span><div>购</div>
+					</a>
+					<div class="sawtooth"></div>
+				</div>
+				</div>
+			</div>
+			<div class="ticket-notice none">
+				<h3>购票须知</h3>
+				<p>{{tourdetail.ticket_description}}</p>
+			</div>
+		</div>
+	</div>
+	<backTop></backTop>	
+</div>

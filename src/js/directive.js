@@ -4,7 +4,7 @@ routerApp
     	restrict:"AE",
     	link:function(scope,element,attrs){
     		element.bind('click', function(event) {
-    			scope.$apply(attrs.howtoload)();
+    			scope.$apply(attrs.howtoload);
     		});
         }
     }; 
@@ -24,7 +24,7 @@ routerApp
 				}else{      
 					element.stop().fadeOut(400); 
 				}
-			})
+			});
         }
     }; 
 });

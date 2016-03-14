@@ -1,0 +1,36 @@
+<div id="roadlist" ng-controller="RoadListCtrl">
+	<div class="search">
+		<div class="container seach-content">
+			<div class="input-group">
+				<i class="iconfont icon-sousuo"></i>
+		    	<input type="text" class="form-control" placeholder="输入内容...">
+		    	<span class="input-group-btn">
+		    		<button class="btn btn-default" type="button">搜索</button>
+		    	</span>
+		    </div>
+		</div>
+	</div>
+ 
+	<ul id="Tab" class="nav nav-tabs">
+		<li ui-sref="roadlist({type:1})" ui-sref-active="active"><a>一日游</a></li>
+		<li ui-sref="roadlist({type:2})" ui-sref-active="active"><a>周边游</a></li>
+	</ul>
+	<div class="container">
+		<div class="collection">
+			<a ui-sref="roaddetail({Id:data.id,type:'road'})" ng-repeat="data in roadlist">
+				<div class="thumbnail">
+			    	<img src="{{data.image}}" alt="{{data.title}}">
+			    	<div class="caption">
+			    		<p>{{data.description}}</p>
+			    		<div class="row">
+			    			<div class="col-xs-6"><span class="fred">￥{{data.price}}</span><del class="fz12">￥597</del></div>
+			    			<div class="col-xs-6"><div class="red sidis">了解详情></div><span class="fz12">已售{{data.sales}}</span></div>
+			    		</div>
+			    	</div>
+			    </div>
+			</a>
+		</div>
+		<a loading howToLoad="loadRoadListInfo" class="more text-center"><div href="">查看更多</div><div class="arrow-r"></div></a>	
+		<backTop></backTop>	
+	</div>
+</div>
