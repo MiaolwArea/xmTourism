@@ -20,57 +20,75 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
             url: '/index',
             views: {
                 '': {
-                    templateUrl: 'ui/home.html'
+                    templateUrl: 'ui/home.html',
+                    controller: 'HomeCtrl'
                 }
             }
         })
         .state('tourlist',{
             url: '/tourlist',
-            templateUrl: 'ui/tourlist.html'
+            templateUrl: 'ui/tourlist.html',
+            controller: 'TourListCtrl'
         })
         .state('tourdetail',{
             url: '/tourdetail/:Id',
-            templateUrl: 'ui/tourdetail.html'
+            templateUrl: 'ui/tourdetail.html',
+            controller: 'TourDetailCtrl'
         })
         .state('roadlist',{
             url: '/roadlist/:type',
-            templateUrl: 'ui/roadlist.html'
+            templateUrl: 'ui/roadlist.html',
+            controller: 'RoadListCtrl'
         })
         .state('roaddetail',{
             url: '/roaddetail/:Id/:type',
-            templateUrl: 'ui/roaddetail.html'
+            templateUrl: 'ui/roaddetail.html',
+            controller: 'RoadDetailCtrl'
         })
         .state('orderlist',{
             url: '/orderlist/:type',
-            templateUrl: 'ui/orderlist.html'
+            templateUrl: 'ui/orderlist.html',
+            controller: 'OrderListCtrl'
         })
         .state('orderdetail',{
             url: '/orderdetail/:Id',
-            templateUrl: 'ui/orderdetail.html'
+            templateUrl: 'ui/orderdetail.html',
+            controller: 'OrderDetailCtrl'
         })
         .state('servepointlist',{
             url: '/servepointlist',
-            templateUrl: 'ui/servepointlist.html'
+            templateUrl: 'ui/servepointlist.html',
+            controller: 'ServePointListCtrl'
         })
         .state('servepoint',{
             url: '/servepoint',
-            templateUrl: 'ui/servepoint.html'
+            templateUrl: 'ui/servepoint.html',
+            controller: 'ServePointCtrl'
         })
         .state('informatlist',{
             url: '/informatlist',
-            templateUrl: 'ui/informatlist.html'
+            templateUrl: 'ui/informatlist.html',
+            controller: 'InformatListCtrl'
         })
         .state('informatdetail',{
             url: '/informatdetail',
-            templateUrl: 'ui/informatdetail.html'
+            templateUrl: 'ui/informatdetail.html',
+            controller: 'InformatDetailCtrl'
         })
         .state('attention',{
             url: '/attention',
-            templateUrl: 'ui/attention.html'
+            templateUrl: 'ui/attention.html',
+            controller: 'AttentionCtrl'
         })
         .state('strategy',{
             url: '/strategy',
-            templateUrl: 'ui/strategy.html'
+            templateUrl: 'ui/strategy.html',
+            controller: 'StrategyCtrl'
+        })
+        .state('activity',{
+            url: '/activity',
+            templateUrl: 'ui/activity.html',
+            controller: 'ActivityCtrl'
         });
 });
 

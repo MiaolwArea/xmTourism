@@ -4,16 +4,25 @@
 var HomeModule = angular.module("HomeModule", []);
 HomeModule.controller('HomeCtrl', function($scope, LoadingInfo, GetInfo) {
     $scope.modal = true;
-    $scope.pageClass = 'hello'
+    $scope.AnimateClass = 'scaling';
     GetInfo(GetUrl.homeinfo, function(data) {
         $scope.homeinfos = data.data;
     })
-    $scope.loadRoadInfo = function(action){
+    $scope.loadRoadInfo = function(action) {
         LoadingInfo(action, GetUrl.loaddata, {type: 'road'}, $scope.homeinfos.road.data);
     };
-    $scope.loadItineraryInfo = function(action){
+    $scope.loadItineraryInfo = function(action) {
         LoadingInfo(action, GetUrl.loaddata, {type: 'itinerary'}, $scope.homeinfos.itinerary.data);
     };
+    $scope.slideleft = function() {
+        angular.element('.carousel-control.right')[0].click(); 
+        if (!$scope.$$phase) {
+            $scope.$apply();
+        }
+    }
+    $scope.slideright = function() {
+        angular.element('.carousel-control.left')[0].click(); 
+    }  
 });
 /**
  * 旅游景点列表模块
@@ -87,53 +96,20 @@ RoadListModule.controller('RoadListCtrl', function($scope, $stateParams, Loading
 var RoadDetailModule = angular.module("RoadDetailModule", []);
 RoadDetailModule.controller('RoadDetailCtrl', function($scope, $stateParams, LoadingInfo, GetInfo) {
     $scope.type = $stateParams.type;
-    // $http.get(GetUrl.roaddetailinfo+'?type='+type).
-    //     success(function(data) {
-    //         $scope.roaddetail = data.data.data;
-    //     }).
-    //     error(function(data) {
-    //         alert(data.msg);
-    //     });
-});
-/**
- * 推荐景点详情页模块
- */
-var RoadDetailModule = angular.module("RoadDetailModule", []);
-RoadDetailModule.controller('RoadDetailCtrl', function($scope, $stateParams, LoadingInfo, GetInfo) {
-    $scope.type = $stateParams.type;
-    // $http.get(GetUrl.roaddetailinfo+'?type='+type).
-    //     success(function(data) {
-    //         $scope.roaddetail = data.data.data;
-    //     }).
-    //     error(function(data) {
-    //         alert(data.msg);
-    //     });
 });
 /**
  * 订单列表页模块
  */
 var OrderListModule = angular.module("OrderListModule", []);
 OrderListModule.controller('OrderListCtrl', function($scope, GetInfo) {
-    // $http.get(GetUrl.roaddetailinfo+'?type='+type).
-    //     success(function(data) {
-    //         $scope.roaddetail = data.data.data;
-    //     }).
-    //     error(function(data) {
-    //         alert(data.msg);
-    //     });
+    
 });
 /**
  * 订单详情页模块
  */
 var OrderDetailModule = angular.module("OrderDetailModule", []);
 OrderDetailModule.controller('OrderDetailCtrl', function($scope, GetInfo) {
-    // $http.get(GetUrl.roaddetailinfo+'?type='+type).
-    //     success(function(data) {
-    //         $scope.roaddetail = data.data.data;
-    //     }).
-    //     error(function(data) {
-    //         alert(data.msg);
-    //     });
+    
 });
 /**
  * 服务网点列表模块
@@ -171,13 +147,20 @@ InformatDetailModule.controller('InformatDetailCtrl', function($scope, GetInfo) 
  */
 var AttentionModule = angular.module("AttentionModule", []);
 AttentionModule.controller('AttentionCtrl', function($scope, GetInfo) {
-    
+    angular.element('html head title').text('注意事项')
 });
 /**
  * 攻略页模块
  */
 var StrategyModule = angular.module("StrategyModule", []);
 StrategyModule.controller('StrategyCtrl', function($scope, GetInfo) {
+    
+});
+/**
+ * 攻略页模块
+ */
+var ActivityModule = angular.module("ActivityModule", []);
+ActivityModule.controller('ActivityCtrl', function($scope, GetInfo) {
     
 });
 

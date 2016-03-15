@@ -1,5 +1,5 @@
-<div class="home" ng-controller="HomeCtrl">
-	<div id="mycarousel" class="carousel slide" data-ride="carousel">
+<div class="home">
+	<div id="mycarousel" class="carousel slide" data-ride="carousel" ng-swipe-left="slideleft()" ng-swipe-right="slideright()">
 		<!-- Indicators -->
 	  <ol class="carousel-indicators">
 	    <li ng-repeat="data in homeinfos.slidepics" data-target="#mycarousel" data-slide-to="{{$index}}" class="{{$index==0?'active':''}}"></li>

@@ -616,6 +616,7 @@ audio{
     background-color: #f34230;
     color: #fff;
 }
+.big-btn-red{background-color: #f34230;}
 .big-btn-green{background-color: #3ea231;}
 #orderlist{
     background-color: #f5f5f5;
@@ -742,11 +743,22 @@ audio{
         height: 16vw;
     }
 }
-#attention{
+.attention-content{
+    margin: 15px 0;
+    h5{font-weight: bold;}
     p{
         font-size: 1.2rem;
     }
 }
+#page-footer {
+    width: 100vw;
+    background-color: #14191c;
+    text-align: center;
+    padding: 15px 0px;
+    font-size: 1rem;
+}
+/* =========animate=========== */
+
 @keyframes rotateFall {
     0% {
         transform: rotateZ(0deg);
@@ -765,37 +777,10 @@ audio{
         transform: translateY(100%) rotateZ(17deg);
     }
 }
-@keyframes slideOutLeft {
-    to {
-        transform: translateX(-100%);
-    }
-}
-@keyframes rotateOutNewspaper {
-    to {
-        transform: translateZ(-3000px) rotateZ(360deg);
-        opacity: 0;
-    }
-}
 @keyframes scaleUp {
     from {
         opacity: 0.3;
         -webkit-transform: scale(0.8);
-    }
-}
-@keyframes slideInRight {
-    from {
-        transform:translateX(100%);
-    }
-    to {
-        transform: translateX(0);
-    }
-}
-@keyframes slideInUp {
-    from {
-        transform:translateY(100%);
-    }
-    to {
-        transform: translateY(0);
     }
 }
 .ng-enter {
@@ -804,23 +789,10 @@ audio{
 .ng-leave {
     z-index: 9999;
 }
-.hello.ng-enter {
+.scaling.ng-enter {
     animation: scaleUp 0.5s both ease-in;
 }
-.hello.ng-leave {
+.scaling.ng-leave {
     transform-origin: 0% 0%;
     animation: rotateFall 1s both ease-in;
-}
-.list.ng-enter {
-    animation:slideInRight 0.5s both ease-in;
-}
-.list.ng-leave {
-    animation:slideOutLeft 0.5s both ease-in;
-}
-#page-footer {
-    width: 100vw;
-    background-color: #14191c;
-    text-align: center;
-    padding: 15px 0px;
-    font-size: 1rem;
 }

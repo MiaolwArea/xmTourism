@@ -1,4 +1,4 @@
-<div id="roadlist" ng-controller="RoadListCtrl">
+<div id="roadlist">
 	<div class="search">
 		<div class="container seach-content">
 			<div class="input-group">
@@ -17,7 +17,7 @@
 	</ul>
 	<div class="container">
 		<div class="collection">
-			<a ui-sref="roaddetail({Id:data.id,type:'road'})" ng-repeat="data in roadlist">
+			<a ui-sref="roaddetail({Id:data.id,type:'road'})" ng-repeat="data in roadlist" ng-swipe-left="aa()">
 				<div class="thumbnail">
 			    	<img src="{{data.image}}" alt="{{data.title}}">
 			    	<div class="caption">

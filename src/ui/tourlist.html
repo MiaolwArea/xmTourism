@@ -1,4 +1,4 @@
-<div id="tourlist" ng-controller="TourListCtrl">
+<div id="tourlist">
 	<div class="search">
 		<div class="container seach-content">
 			<div class="input-group pr">
@@ -17,7 +17,7 @@
 	</div>
 	<div class="container">
 		<div class="tourcollection">
-			<div ng-if="IsData" class="media" ng-repeat="data in tourlist">
+			<div ng-if="IsData" class="media animate-repeat" ng-repeat="data in tourlist">
 				<a ui-sref="tourdetail({Id:data.id})">
 				  	<div class="media-left media-middle">
 					    <div class="list-pic">

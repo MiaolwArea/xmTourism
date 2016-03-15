@@ -1,0 +1,30 @@
+@media only screen and (min-width: 320px){
+    html {
+        font-size: 62.5%!important; /* 10÷16=94% */
+    }
+}
+@media only screen and (min-width: 360px){
+    html {
+        font-size: 73%!important; /* 11.71875÷16=94% */
+    }
+}
+@media only screen and (min-width: 414px){
+    html {
+        font-size: 80.86%!important; /* 12.9375÷16=94% */
+    }
+}
+@media only screen and (min-width: 480px){
+    html {
+        font-size: 94%!important; /* 15.04÷16=94% */
+    }
+}
+@media only screen and (min-width: 560px){
+    html {
+        font-size: 109%!important; /* 17.44÷16=109% */
+    }
+}
+@media only screen and (min-width: 640px){
+    html {
+        font-size: 125%!important; /* 20÷16=125% */
+    }
+}
