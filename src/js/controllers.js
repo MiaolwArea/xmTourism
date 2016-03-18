@@ -5,6 +5,8 @@ var HomeModule = angular.module("HomeModule", []);
 HomeModule.controller('HomeCtrl', function($scope, LoadingInfo, GetInfo) {
     $scope.modal = true;
     $scope.AnimateClass = 'scaling';
+    $scope.myInterval = 5000;
+    $scope.noWrapSlides = false;
     GetInfo(GetUrl.homeinfo, function(data) {
         $scope.homeinfos = data.data;
     })
@@ -14,15 +16,6 @@ HomeModule.controller('HomeCtrl', function($scope, LoadingInfo, GetInfo) {
     $scope.loadItineraryInfo = function(action) {
         LoadingInfo(action, GetUrl.loaddata, {type: 'itinerary'}, $scope.homeinfos.itinerary.data);
     };
-    $scope.slideleft = function() {
-        angular.element('.carousel-control.right')[0].click(); 
-        if (!$scope.$$phase) {
-            $scope.$apply();
-        }
-    }
-    $scope.slideright = function() {
-        angular.element('.carousel-control.left')[0].click(); 
-    }  
 });
 /**
  * 旅游景点列表模块
@@ -53,7 +46,7 @@ TourListModule.controller('TourListCtrl', function($scope, $stateParams, $timeou
                 LoadingInfo(action, GetUrl.loaddata, {type: 'itinerary'}, $scope.homeinfos.itinerary.data);
             };
         }else{
-            console.log('请输入关键字!');
+            alert('请输入关键字!');
         }
     };
 });
@@ -78,7 +71,7 @@ TourDetailModule.controller('TourDetailCtrl', function($scope, $stateParams, $ti
     }
 });
 /**
- * 推荐景点列表页模块
+ * 推荐路线列表页模块
  */
 var RoadListModule = angular.module("RoadListModule", []);
 RoadListModule.controller('RoadListCtrl', function($scope, $stateParams, LoadingInfo, GetInfo) {
@@ -91,7 +84,7 @@ RoadListModule.controller('RoadListCtrl', function($scope, $stateParams, Loading
     }
 });
 /**
- * 推荐景点详情页模块
+ * 推荐路线详情页模块
  */
 var RoadDetailModule = angular.module("RoadDetailModule", []);
 RoadDetailModule.controller('RoadDetailCtrl', function($scope, $stateParams, LoadingInfo, GetInfo) {
@@ -109,7 +102,50 @@ OrderListModule.controller('OrderListCtrl', function($scope, GetInfo) {
  */
 var OrderDetailModule = angular.module("OrderDetailModule", []);
 OrderDetailModule.controller('OrderDetailCtrl', function($scope, GetInfo) {
-    
+
+});
+
+/**
+ * 订单填写页模块
+ */
+var OrderFillModule = angular.module("OrderFillModule", []);
+OrderFillModule.controller('OrderFillCtrl', function($scope, $stateParams, $http, GetInfo) {
+    var price,date,userInfoCache = [];
+    $scope.action = 'ticket';
+    $scope.id = $stateParams.id;
+    $scope.userinfo = {};
+    $scope.userInfoCache = [];
+
+    GetInfo(GetUrl.orderticket, {id: $scope.id}, function(data) {
+        $scope.orderticket = data.data;
+        $scope.initprice = $scope.orderticket.price;
+        price = $scope.orderticket.today.price;
+        date = $scope.orderticket.today.date;
+        $scope.initdata();
+    });
+    $scope.initdata = function() {
+        $scope.userinfo.price = price;
+        $scope.userinfo.date = date;
+        $scope.userinfo.type = '成人票';
+    };
+    $scope.add = function(params) {
+        $scope.userInfoCache.push($scope.userinfo);
+        $scope.userinfo = {};
+        $scope.initdata();
+        $scope.action = params;
+    };
+    $scope.newadd = function(params) {
+        $scope.initdata();
+        $scope.action = params;
+    };
+    $scope.save = function() {
+        $http.post(GetUrl.orderticket, {data: $scope.userInfoCache}).success(function(data){
+
+        });
+    };
+    // $scope.isUnchanged = function(user) {
+    //     return angular.equals(user, $scope.master);
+    // };
 });
 /**
  * 服务网点列表模块
@@ -146,8 +182,15 @@ InformatDetailModule.controller('InformatDetailCtrl', function($scope, GetInfo) 
  * 注意事项页模块
  */
 var AttentionModule = angular.module("AttentionModule", []);
-AttentionModule.controller('AttentionCtrl', function($scope, GetInfo) {
-    angular.element('html head title').text('注意事项')
+AttentionModule.controller('AttentionCtrl', function($scope, $stateParams, GetInfo) {
+    var pagename = $stateParams.page;
+    if(pagename == ''){
+        $scope.showpic = false;
+        angular.element('html head title').text('注意事项')
+    }else{
+        $scope.showpic = true;
+        angular.element('html head title').text('关于我们')
+    }
 });
 /**
  * 攻略页模块

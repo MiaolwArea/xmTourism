@@ -35,8 +35,8 @@
 				  	</div>
 			  	</a>
 			</div>
-			<a ng-show="IsShow" loading howToLoad="loadTourListInfo" class="more text-center"><div href="">查看更多</div><div class="arrow-r"></div></a>	
-			<nav ng-show="IsShow">
+			<a ng-show="IsShow" loading howToLoad="loadTourListInfo('next')" class="more text-center"><div href="">查看更多</div><div class="arrow-r"></div></a>	
+			<nav ng-show="!IsShow">
 				<ul class="pager">
 					<li ng-class="{'disabled': num==1}" class="previous"><a loading howToLoad="loadInfo('prev')"><span aria-hidden="true">&larr;</span>上一页</a></li>
 					<li class="next"><a loading howToLoad="loadInfo('next')">下一页 <span aria-hidden="true">&rarr;</span></a></li>

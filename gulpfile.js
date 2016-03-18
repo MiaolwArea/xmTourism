@@ -28,6 +28,7 @@ gulp.task('serve', ['css'], function() {
 gulp.task('css', function() {
     var cssSrc = './src/scss/*.scss',
         compilefile = './src/scss';
+        cssDst = './dist/css';
 
     return gulp.src(cssSrc)
         .pipe($.sass.sync({
@@ -38,6 +39,7 @@ gulp.task('css', function() {
         .pipe($.rename({ suffix: '.min' }))
         .pipe($.minifyCss())
         .pipe(gulp.dest(compilefile))
+        .pipe(gulp.dest(cssDst))
         .pipe(reload({stream: true}));
 });
 // HTML处理
@@ -59,39 +61,38 @@ gulp.task('images', function(){
 })
 // js处理
 gulp.task('js', function () {
-    var jsSrc = './src/js/*.js',
-        jsDst ='./dist/js';
+    // var jsSrc = ['libs/jquery/dist/jquery.min.js','libs/angular/angular.js','libs/angular/angular-ui-router.js','libs/angular-animate/angular-animate.min.js',
+    //     'libs/angular-touch/angular-touch.min.js','libs/angular-bootstrap/ui-bootstrap-tpls.min.js','libs/angular-messages/angular-messages.min.js', './src/js/*.js'],
+    //     jsDst ='./dist/js';
 
-    gulp.src(jsSrc)
-        .pipe($.jshint())
-        .pipe($.jshint.reporter('default'))
+    // gulp.src(jsSrc)
+    //     .pipe($.jshint())
+    //     .pipe($.jshint.reporter('default'))
+    //     .pipe($.concat('main.js'))
+    //     .pipe($.rename({ suffix: '.min' }))
+    //     .pipe($.uglify())
+    //     .pipe(gulp.dest(jsDst))
+    //     .pipe(reload({stream: true})); 
+    gulp.src('js/**/*')
         .pipe($.concat('main.js'))
-        .pipe(gulp.dest(jsDst))
         .pipe($.rename({ suffix: '.min' }))
         .pipe($.uglify())
-        .pipe(gulp.dest(jsDst))
+        .pipe(gulp.dest('./src/js/'))
         .pipe(reload({stream: true})); 
 });
 // 文件复制
 gulp.task('copy', function () {
-    // var jsSrc = ['./src/font/**/*', './src/scss/*.min.css', './src/libs/angular/*.min.js', './src/libs/angular/angular-ui-router.js', './src/libs/bootstrap/dist/css/*.min.css', './src/libs/bootstrap/dist/js/*.min.js', './src/libs/jquery/dist/*.min.js',],
-    //     jsDst = ['./dist/font', './dist/css', './dist/libs'];
-    // for(var i in jsSrc){
-    //     if(i == 0){
-    //         gulp.src(jsSrc[i])
-    //             .pipe(gulp.dest(jsDst[0]));
-    //     }else if(i == 1){
-    //         gulp.src(jsSrc[i])
-    //             .pipe(gulp.dest(jsDst[1]));
-    //     }else{
-    //         gulp.src(jsSrc[i])
-    //             .pipe(gulp.dest(jsDst[2]));
-    //     }
-    // }
+    // var jsSrc = ['./src/font/**/*', './src/scss/*.min.css', './src/libs/angular/*.min.js', './src/libs/angular/angular-ui-router.js',
+    //     './src/libs/bootstrap/dist/css/*.min.css', './src/libs/bootstrap/dist/js/*.min.js', './src/libs/jquery/dist/*.min.js',],
+        // jsDst = ['./dist/font', './dist/css', './dist/libs'];
+    gulp.src('./src/font/**/*')
+        .pipe(gulp.dest('./dist/font'));
     gulp.src('./src/config.ini')
         .pipe(gulp.dest('./dist')); 
-    gulp.src('./src/ui/*.jsp')
+    gulp.src('./src/ui/*.html')
         .pipe(gulp.dest('./dist/ui'));   
+    gulp.src('./src/data/**/*')
+        .pipe(gulp.dest('./dist/data'));
 });
 // 静态资源路径替换
 gulp.task('usemin', function() {
@@ -109,5 +110,5 @@ gulp.task('clean', function() {
 });
 
 gulp.task('default', ['clean'], function(){
-    gulp.start('html', 'images', 'css', 'copy', 'js', 'usemin');
+    gulp.start('html', 'images', 'css', 'js', 'copy',  'usemin');
 });

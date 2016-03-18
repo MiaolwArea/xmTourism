@@ -1,19 +1,13 @@
 <div class="home">
-	<div id="mycarousel" class="carousel slide" data-ride="carousel" ng-swipe-left="slideleft()" ng-swipe-right="slideright()">
-		<!-- Indicators -->
-	  <ol class="carousel-indicators">
-	    <li ng-repeat="data in homeinfos.slidepics" data-target="#mycarousel" data-slide-to="{{$index}}" class="{{$index==0?'active':''}}"></li>
-	  </ol>
-	  <!-- Wrapper for slides -->
-	  <div class="carousel-inner" role="listbox">
-	    <div ng-repeat="data in homeinfos.slidepics" class="item {{$index==0?'active':''}}">
-	      <img src="{{data.image}}" alt="{{data.title}}">
-	    </div>
-	  </div>
-	  <!-- Controls -->
-	  <a class="left carousel-control" href="#mycarousel" role="button" data-slide="prev"></a>
-	  <a class="right carousel-control" href="#mycarousel" role="button" data-slide="next"></a>
-	</div>
+	<uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+      <uib-slide ng-repeat="data in homeinfos.slidepics" index="$index">
+        <img ng-src="{{data.image}}" style="margin:auto;">
+        <div class="carousel-caption">
+          <h4></h4>
+          <p></p>
+        </div>
+      </uib-slide>
+    </uib-carousel>
 	<!-- end:首页轮播图 -->
 	<div class="container row notice">
 		<div class="col-xs-4 text-center"><i class="iconfont icon-gonggao fz24 mr10"></i><span class="fz24">公告</span><span class="fr">|</span></div>	
@@ -155,6 +149,4 @@
 		</div>
 	</div>
 	<!-- end:main -->
-<script type="text/javascript" src="js/common/toucher.js"></script>
-<script type="text/javascript" src="js/common/public.js"></script>
 </div>

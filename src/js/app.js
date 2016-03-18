@@ -1,7 +1,7 @@
-var routerApp = angular.module('xmTourismApp', ['ui.router', 'ngTouch', 'ngAnimate', 'HomeModule', 'ServePointModule', 'ServePointListModule', 'TourListModule', 'TourDetailModule', 'RoadListModule', 'RoadDetailModule',
-    'OrderListModule', 'OrderDetailModule', 'InformatListModule', 'InformatDetailModule', 'AttentionModule', 'StrategyModule']);
+var routerApp = angular.module('xmTourismApp', ['ui.router', 'ui.bootstrap', 'ngTouch', 'ngAnimate', 'ngMessages', 'HomeModule', 'ServePointModule', 'ServePointListModule', 'TourListModule', 'TourDetailModule', 'RoadListModule', 'RoadDetailModule',
+    'OrderListModule', 'OrderDetailModule', 'OrderFillModule', 'InformatListModule', 'InformatDetailModule', 'AttentionModule', 'StrategyModule']);
 /**
- * 这里把$state和$stateParams这两个对象放到$rootScope上，方便其它地方引用和注入。
+ * 把$state和$stateParams这两个对象放到$rootScope上，方便其它地方引用和注入。
  */
 routerApp.run(function($rootScope, $state, $stateParams) {
     $rootScope.$state = $state;
@@ -10,8 +10,6 @@ routerApp.run(function($rootScope, $state, $stateParams) {
 
 /**
  * 配置路由。
- * @param $stateProvider {[type]} 
- * @param $urlRouterProvider {[type]} 
  */
 routerApp.config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/index');
@@ -55,6 +53,11 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: 'ui/orderdetail.html',
             controller: 'OrderDetailCtrl'
         })
+        .state('orderfill',{
+            url: '/orderfill/:Id',
+            templateUrl: 'ui/orderfill.html',
+            controller: 'OrderFillCtrl'
+        })
         .state('servepointlist',{
             url: '/servepointlist',
             templateUrl: 'ui/servepointlist.html',
@@ -76,7 +79,7 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
             controller: 'InformatDetailCtrl'
         })
         .state('attention',{
-            url: '/attention',
+            url: '/attention/:page',
             templateUrl: 'ui/attention.html',
             controller: 'AttentionCtrl'
         })

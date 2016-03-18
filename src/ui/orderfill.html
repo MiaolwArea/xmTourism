@@ -1,0 +1,105 @@
+<div id="orderfill">
+	<div class="jumbotron">
+		<div class="orderfill-header">
+			<h4>百年鼓浪屿普通票</h4>
+			<div><span class="red sidis mr10">在线支付</span><a class="fz12">至少提前4小时预定</a></div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="order-box">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<form name="myForm" class="form-horizontal" novalidate>
+						<div class="form-group">
+							<label for="inputEmail3" class="col-xs-3 control-label">近期去玩</label>
+							<div class="col-xs-9">
+								<div class="row date-list">
+									<div class="col-xs-4 active" data-price="{{orderticket.today.price}}" data-date="{{orderticket.today.date}}" Active>
+										今天
+										<div>￥{{orderticket.today.price}}起</div>
+									</div>
+									<div class="col-xs-4" data-price="{{orderticket.tomorrow.price}}" data-date="{{orderticket.tomorrow.date}}" Active>
+										明天
+										<div>￥{{orderticket.tomorrow.price}}起</div>
+									</div>
+									<div class="col-xs-4" data-price="{{orderticket.aftertomorrow.price}}" data-date="{{orderticket.aftertomorrow.date}}" Active>
+										后天
+										<div>￥{{orderticket.aftertomorrow.price}}起</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputPassword3" class="col-xs-3 control-label">我要选择</label>
+							<div class="col-xs-9" Active>
+								<datepicker>日期控件</datepicker>	
+							</div>
+						</div>
+						<div ng-switch="action">
+							<div  ng-switch-when="ticket">
+								<div class="form-group">
+									<label for="inputPassword3" class="col-xs-3 control-label">票种</label>
+									<div class="col-xs-9">
+										<select ng-model="$parent.userinfo.type" class="form-control">
+											<option>成人票</option>
+											<option>儿童票</option>
+											<option>军人</option>
+											<option>老人</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="inputPassword3" class="col-xs-3 control-label">单价</label>
+									<div class="col-xs-9">
+										<input type="test" class="form-control" readonly="true" id="pirce" ng-model="$parent.userinfo.price" placeholder="">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="name" class="col-xs-3 control-label">姓名</label>
+									<div class="col-xs-9">
+										<input type="text" class="form-control" id="name" name="name" ng-model="$parent.userinfo.name" ng-minLength=3 ng-maxlength=20 required placeholder="" GetElmAtrs>
+										<div ng-messages="myForm.name.$error" ng-if="myForm.name.$touched" ng-messages-multiple dirmessages></div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="inputPassword3" class="col-xs-3 control-label">电话</label>
+									<div class="col-xs-9">
+										<input type="text" class="form-control" id="phone" name="phone" ng-model="$parent.userinfo.phone" placeholder="" required GetElmAtrs>
+										<div ng-messages="myForm.phone.$error" ng-if="myForm.phone.$touched" ng-messages-multiple dirmessages></div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="inputPassword3" class="col-xs-3 control-label">身份证</label>
+									<div class="col-xs-9">
+										<input type="text" class="form-control" id="IDcard" name="IDcard" ng-model="$parent.userinfo.IDcard" placeholder="" required ng-minLength=13 GetElmAtrs>
+										<div ng-messages="myForm.IDcard.$error" ng-if="myForm.IDcard.$touched" ng-messages-multiple dirmessages></div>
+									</div>
+								</div>
+							</div>
+							<div ng-switch-when="preson">
+								<div class="form-group preson" ng-repeat="ticket in userInfoCache">
+									<div class="col-xs-2 text-center"><i class="iconfont icon-prohibition"></i></div>
+									<div class="col-xs-7 preson-text">
+										<div><span class="preson-name">{{ticket.name}}</span><span>{{ticket.type}}</span></div>
+										<div><span>身份证</span><span>{{ticket.IDcard}}</span></div>
+									</div>
+									<div class="col-xs-3 preson-edit"><span class="bra">编辑</span></div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+						  	<div class="col-xs-6 text-right">
+							    <button ng-if="action == 'ticket'" type="submit" class="btn big-btn big-btn-red" ng-disabled="myForm.$invalid" ng-click="add()">添加</button>
+							    <button ng-if="action == 'preson'"class="btn big-btn big-btn-red" ng-click="newadd('ticket')">添加成员</button>
+						  	</div>
+						  	<div class="col-xs-6">
+							    <button ng-if="action == 'ticket'" ng-disabled="myForm.$invalid" class="btn big-btn big-btn-red" ng-click="add('preson')">下一步</button>
+							    <button ng-if="action == 'preson'" class="btn big-btn big-btn-red" ng-click="save()">下一步</button>
+						  	</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

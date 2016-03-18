@@ -39,6 +39,10 @@ body{font-family: "Microsoft YaHei"}
     margin-right: -5px;
     margin-left: -5px;
 }
+.alert{
+    margin-bottom: 0;
+    padding: 10px;
+}
 
 .carousel img {
     width: 100%;
@@ -743,11 +747,96 @@ audio{
         height: 16vw;
     }
 }
-.attention-content{
-    margin: 15px 0;
-    h5{font-weight: bold;}
-    p{
-        font-size: 1.2rem;
+#attention{
+    .attention-content{
+        margin: 15px 0;
+        h5{font-weight: bold;}
+        p{
+            font-size: 1.2rem;
+        }
+    }
+    img{
+        width: 100%;
+        height: 160px;
+        margin-top: 15px;
+    }
+}
+#orderfill{
+    background-color: #f5f5f5;
+    >.jumbotron{
+        background-color: #FFF;
+        margin-bottom: 10px;
+        box-shadow: 0 2px 1px rgba(0, 0, 0, .05);
+    }
+}
+.orderfill-header{
+    padding: 0 15px;
+    .sidis{
+        border-radius: 0;
+    }
+}
+.order-box{
+    .date-list{
+        >div{
+            margin: 5px;
+            padding: 5px;
+            width: 19vw;
+            height: 14vw;
+            text-align: center;
+            border: 1px solid #CACACA;
+            font-size: 1.2rem;
+            >div{
+                color: #ec624f;
+            }
+            &.active{
+                box-shadow: 0px 0px 10px #FF6C6C;
+            }
+        }
+    }
+    .big-btn{
+        width: 28vw;
+        margin: 0;
+    }
+    label{
+        line-height: 2;
+    }
+    i{
+        color: #f34230;
+    }
+    .preson{
+        >div{
+            &:first-child,&:last-child{
+                padding: 10px
+            }
+        }
+    }
+}
+form{
+    >.form-group:last-child{
+        margin-top: 10vw;
+    } 
+} 
+.preson-text{
+    font-size: 1.2rem;
+    padding: 0;
+    >div{
+        span:nth-of-type(1){
+            margin-right: 5px;
+        }
+    }
+    .preson-name{
+        font-size: 1.4rem
+    }
+}
+.preson-edit{
+
+        text-align: center;
+    .bra{
+        border-radius: 5px;
+        border: 1px solid #1d5ee3;
+        padding: 5px 10px;
+        color: #1d5ee3;
+        width: 16vw;
     }
 }
 #page-footer {
