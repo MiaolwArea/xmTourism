@@ -88,21 +88,31 @@ RoadListModule.controller('RoadListCtrl', function($scope, $stateParams, Loading
  */
 var RoadDetailModule = angular.module("RoadDetailModule", []);
 RoadDetailModule.controller('RoadDetailCtrl', function($scope, $stateParams, LoadingInfo, GetInfo) {
+    $scope.id = $stateParams.Id;
     $scope.type = $stateParams.type;
+    GetInfo(GetUrl.roaddetail, {id: $scope.id}, function(data) {
+        $scope.roaddetail = data.data;
+        $scope.roaddetail.roadtitle = data.data.roadtitle.split('|');
+    });
 });
 /**
  * 订单列表页模块
  */
 var OrderListModule = angular.module("OrderListModule", []);
 OrderListModule.controller('OrderListCtrl', function($scope, GetInfo) {
-    
+    GetInfo(GetUrl.orderlist, function(data) {
+        $scope.orderlist = data.data;
+    });
 });
 /**
  * 订单详情页模块
  */
 var OrderDetailModule = angular.module("OrderDetailModule", []);
-OrderDetailModule.controller('OrderDetailCtrl', function($scope, GetInfo) {
-
+OrderDetailModule.controller('OrderDetailCtrl', function($scope, $stateParams, GetInfo) {
+    $scope.id = $stateParams.Id;
+    GetInfo(GetUrl.orderdetail, {id: $scope.id}, function(data) {
+        $scope.orderdetail = data.data;
+    });
 });
 
 /**
@@ -157,26 +167,20 @@ ServePointListModule.controller('ServePointListCtrl', function($scope, GetInfo) 
     });
 });
 /**
- * 服务网点模块
- * @function $scope.bdMap {设置地图功能} 
+ * 景点导览模块
  */
-var ServePointModule = angular.module("ServePointModule", []);
-ServePointModule.controller('ServePointCtrl', function($scope, bdMapSev, GetInfo) {
-    $scope.map = new bdMapSev();  
+var GuideModule = angular.module("GuideModule", []);
+GuideModule.controller('GuideCtrl', function($scope, $http) {
+    
 });
 /**
  * 资讯列表模块
  */
 var InformatListModule = angular.module("InformatListModule", []);
 InformatListModule.controller('InformatListCtrl', function($scope, GetInfo) {
-    
-});
-/**
- * 资讯详情页模块
- */
-var InformatDetailModule = angular.module("InformatDetailModule", []);
-InformatDetailModule.controller('InformatDetailCtrl', function($scope, GetInfo) {
-    
+    GetInfo(GetUrl.informatList, function(data) {
+        $scope.informatList = data.data;
+    });
 });
 /**
  * 注意事项页模块
@@ -186,7 +190,10 @@ AttentionModule.controller('AttentionCtrl', function($scope, $stateParams, GetIn
     var pagename = $stateParams.page;
     if(pagename == ''){
         $scope.showpic = false;
-        angular.element('html head title').text('注意事项')
+        angular.element('html head title').text('注意事项');
+        GetInfo(GetUrl.attention, function(data) {
+            $scope.attention = data.data;
+        });
     }else{
         $scope.showpic = true;
         angular.element('html head title').text('关于我们')
@@ -197,13 +204,17 @@ AttentionModule.controller('AttentionCtrl', function($scope, $stateParams, GetIn
  */
 var StrategyModule = angular.module("StrategyModule", []);
 StrategyModule.controller('StrategyCtrl', function($scope, GetInfo) {
-    
+    GetInfo(GetUrl.strategy, function(data) {
+        $scope.strategy = data.data;
+    });
 });
 /**
- * 攻略页模块
+ * 活动页模块
  */
 var ActivityModule = angular.module("ActivityModule", []);
 ActivityModule.controller('ActivityCtrl', function($scope, GetInfo) {
-    
+    GetInfo(GetUrl.activity, function(data) {
+        $scope.activity = data.data;
+    });
 });
 

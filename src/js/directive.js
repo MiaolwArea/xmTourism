@@ -28,7 +28,7 @@ routerApp
         }
     }; 
 })
-.directive('active', function() {
+.directive('actives', function() {
     return {
         restrict: "AE",
         link:function(scope, element, attrs){
@@ -144,4 +144,87 @@ routerApp
             }
         }
     }; 
+})
+.directive('bdmap', function($http,$compile,$timeout){ 
+    return {
+        restrict: "AE",
+        template: '<div class="mapfunction"><div id="mappoint-map"></div>\
+                    <div class="pointsearch">\
+                        <i class="iconfont icon-sousuo"></i>\
+                        <div class="goleft"></div>\
+                        <input type="text" class="form-control" ng-model="searchctxt" placeholder="搜索...">\
+                        <pre ng-show="searchctxt">\
+                            <ul class="searchctxt-list list-group">\
+                                <li class="list-group-item" ng-repeat="result in results track by $index"><a ng-click="searchIn(result.id,result.coordinate)" ng-bind-html="result.name|to_trusted"></a></li>\
+                            </ul>\
+                            <div ng-show="nodata" class="nodata">无搜索结果！</div>\
+                        </pre>\
+                    </div>\
+                    </div>',
+        replace: true,
+        link:function(scope, element, attrs){
+            $http.get(GetUrl.guide).success(function(data){
+                scope.guideinfo = data.data;
+                bdMap(scope.guideinfo);
+                // 搜索
+                scope.$watch('searchctxt', function(newVal, oldVal) {
+                    scope.results = [];
+                    if(scope.searchctxt != undefined) var ft = scope.searchctxt.toLowerCase();
+                    if (newVal !== oldVal) {
+                        $timeout(function() {
+                            angular.forEach(scope.guideinfo, function(data,index,array){
+                                var patten = new RegExp(""+ft+"");
+                                if(patten.test(data.name)){
+                                    scope.nodata = false;
+                                    var newname = data.name.replace(patten, "<span style='font-weight: bold;color: #000;'>"+ft+"</span>");
+                                    scope.results.push({
+                                        id: data.id,
+                                        name: newname,
+                                        coordinate: data.coordinate
+                                    });
+                                }else{
+                                    scope.nodata = true;
+                                }
+                            });
+                        }, 100, true);
+                    }
+                }, true);
+            });
+            var bdMap = function(guideinfo){
+                var pwe = guideinfo[0].coordinate.split(',')
+                var map = new BMap.Map("mappoint-map");
+                var point = new BMap.Point(parseFloat(pwe[0]), parseFloat(pwe[1]));
+                var top_right_navigation = new BMap.NavigationControl({anchor: BMAP_ANCHOR_BOTTOM_RIGHT, type: BMAP_NAVIGATION_CONTROL_SMALL});
+                map.addControl(top_right_navigation);    
+                map.centerAndZoom(point, 14);
+
+                var wininfo = [];
+                // 编写自定义函数,创建标注
+                function addMarker(point,infodata){
+                    var marker = new BMap.Marker(point);
+                    map.addOverlay(marker);
+                    var sContent = "<div class='markerinfo'><h4 class='markerinfotitle'>"+infodata.name+"</h4>" 
+                        + "<p class='markerinfoaddress'>地址："+infodata.address+"</p>" 
+                        + "<a ui-sref='tourdetail({Id:"+infodata.id+"})'>详细信息>></a>" 
+                        + "<a class='tohere' href='http://map.baidu.com/mobile/webapp/place/linesearch/foo=bar/end=word="+infodata.name+"&point="+infodata.coordinate+"&citycode=194&from=place'>到这里<i class='iconfont icon-dingweiyuandian'></i></a>" 
+                        + "</div>";
+                    var infoWindow = new BMap.InfoWindow($compile(sContent)(scope)[0]);  // 创建信息窗口对象 
+                    marker.addEventListener("click", function(e){
+                        map.openInfoWindow(infoWindow,point); //开启信息窗口
+                    });
+                    wininfo[infodata.id] = infoWindow;
+                }
+                scope.searchIn = function(id, coordinate){
+                    scope.searchctxt = '';
+                    var pwe = coordinate.split(',');
+                    map.openInfoWindow(wininfo[id],new BMap.Point(parseFloat(pwe[0]), parseFloat(pwe[1])));
+                }
+                angular.forEach(guideinfo, function(data,index,array){
+                    var we = data.coordinate.split(',')
+                    var point = new BMap.Point(parseFloat(we[0]), parseFloat(we[1]));
+                    addMarker(point,data);
+                });
+            };
+        }
+    };
 });

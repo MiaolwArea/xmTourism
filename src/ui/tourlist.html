@@ -6,10 +6,10 @@
 		    	<input type="text" class="form-control" ng-model="searchctxt" placeholder="输入内容...">
 		    	<span class="input-group-btn">
 		    		<button class="btn btn-default" type="button" ng-click="SearchResult()">搜索</button>
-		    	</span>
+		    	</span> 
 		    	<pre ng-show="searchctxt">
 		    		<ul class="searchctxt-list list-group">
-		    			<li class="list-group-item" ng-reapt="result in results"><a ui-sref="tourdetail({Id:result.id})">{{result.name}}</a></li>
+		    			<li class="list-group-item" ng-repeat="result in results"><a ui-sref="tourdetail({Id:result.id})">{{result.name}}</a></li>
 		    		</ul>
 		    	</pre>
 		    </div>

@@ -251,7 +251,7 @@ del{
 }
 #mappoint-map{
     width: 100vw;
-    height: 81vh;
+    height: 88vh;
 }
 .pointlist-header{
     position: relative;
@@ -402,6 +402,23 @@ del{
     &:before{
         border-bottom-color: #fff;
         top: 0px;
+    }
+}
+.goleft{
+    &:after,&:before{
+        border: 3vw solid transparent;
+        border-right: 3vw solid #fff;
+        width: 0;
+        height: 0;
+        position: absolute;
+        left: 2px;
+        right: 2vw;
+        top: 4vw;
+        content: ' '
+    }
+    &:before{
+        border-right-color: #7D7D7D;
+        left: 0px;
     }
 }
 .tourdetail-header{
@@ -559,6 +576,11 @@ audio{
             } 
         }
     }
+    .container:nth-of-type(2){
+        p{
+            text-indent: 2em;
+        }
+    }
     .cost{
         h5{
             font-weight: bold
@@ -582,9 +604,6 @@ audio{
     .road-content{
         font-size: 1.3rem;
         margin-top: 10px;
-        p{
-            text-indent: 2em;
-        }
     }
     del{
         margin-left: 10px
@@ -837,6 +856,159 @@ form{
         padding: 5px 10px;
         color: #1d5ee3;
         width: 16vw;
+    }
+}
+
+#activity{
+    margin: 15px auto;
+    .showheader{
+        img{
+            width: 290px;
+            height: 90px;
+        }
+    }
+    .head{
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .col-xs-6,.reward-content{
+        margin: 15px auto
+    }
+    .content{
+        p{
+            font-size: 1.2rem;
+            color: #ec624f;
+        }
+    }
+    .polygon{
+        position: absolute;
+        // width:20vw;
+        // height:20vw;
+        shape-outside:polygon(12vw 0,25vw 11.5vw,20vw 26vw,6vw 26vw,0 12.5vw);
+        -webkit-clip-path:polygon(12vw 0,25vw 11.5vw,20vw 26vw,6vw 26vw,0 12.5vw);
+        img{
+            width: 26vw;
+            height: 26vw;
+        }
+    }
+    .rotate{
+        top: 0;
+        left: 10vw;
+        transform:rotate(-7deg);
+        -webkit-transform:rotate(-7deg);
+    }
+    .rotate2{
+        top: 20vw;
+        left: 0;
+        transform:rotate(-30deg);
+        -webkit-transform:rotate(-30deg);
+    }
+    .rotate3{
+        top: 13vw;
+        left: 21vw;
+        transform:rotate(-30deg);
+        -webkit-transform:rotate(-30deg);
+    }
+    .reward{
+        img{
+            position: absolute;
+            top: -12vw;
+            left: -8vw;
+            width: 20vw;
+            height: 20vw;
+        }
+    }
+    .reward-content{
+        p:not(:last-child){
+            color: #828282;
+            font-size: 1.3rem;
+        }
+    }
+}
+.trapezoid {
+    height:0px; 
+    width:38vw; 
+    border-bottom: 8vw solid #e93125;
+    border-left: 4vw solid transparent; 
+    border-right: 4vw solid transparent;
+    border-radius: 5px;
+    color: #fff;
+    line-height: 1.5;
+    font-weight: bold;
+    text-align: center
+}
+.markerinfo{
+    .markerinfotitle{
+        margin:0 0 5px 0;
+        padding:0.2em 0;
+        overflow: hidden;
+        width: 65vw;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    .markerinfoaddress{
+        margin:0;
+        line-height:1.5;
+        font-size:13px;
+        text-indent:2em
+    }
+    .tohere{
+        float: right;
+        color: #337ab7;
+        i{
+            color: red;
+            margin: 0 5px;
+        }
+    }
+}
+.pointsearch{
+    position: absolute;
+    top: 5vw;
+    width: 80vw;
+    margin: 0 10vw;
+    padding: 5px;
+    border: 1px solid #CECECE;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 1px 5px #BBBBBB;
+    i{
+        position: absolute;
+        top: 3vw;
+        left: 12vw;
+    }
+    input{
+        width: 68vw;
+        float: right;
+        height: 10vw;
+        text-indent: 1em;
+        border: 1px solid #E0DBDB;
+    }
+    pre{
+        position: absolute;
+        top: 14vw;
+        left: 0;
+        z-index: 99;
+        width: 100%;
+        line-height: 0;
+    }
+    .searchctxt-list li{
+        border: 0;
+        line-height: 5vw;
+        width: 73vw;
+        overflow: hidden;
+        height: 5vw;
+        padding: 0;
+        margin: 7px 0;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        border-bottom: 1px solid #ccc;
+    }
+    .nodata{
+        text-align: center;
+        color: #9C9C9C;
+        padding: 2vw;
     }
 }
 #page-footer {

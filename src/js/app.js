@@ -1,5 +1,5 @@
-var routerApp = angular.module('xmTourismApp', ['ui.router', 'ui.bootstrap', 'ngTouch', 'ngAnimate', 'ngMessages', 'HomeModule', 'ServePointModule', 'ServePointListModule', 'TourListModule', 'TourDetailModule', 'RoadListModule', 'RoadDetailModule',
-    'OrderListModule', 'OrderDetailModule', 'OrderFillModule', 'InformatListModule', 'InformatDetailModule', 'AttentionModule', 'StrategyModule']);
+var routerApp = angular.module('xmTourismApp', ['ui.router', 'ui.bootstrap', 'ngTouch', 'ngAnimate', 'ngMessages', 'HomeModule', 'GuideModule', 'ServePointListModule', 'TourListModule', 'TourDetailModule', 'RoadListModule', 'RoadDetailModule',
+    'OrderListModule', 'OrderDetailModule', 'OrderFillModule', 'InformatListModule', 'AttentionModule', 'StrategyModule', 'ActivityModule']);
 /**
  * 把$state和$stateParams这两个对象放到$rootScope上，方便其它地方引用和注入。
  */
@@ -54,7 +54,7 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
             controller: 'OrderDetailCtrl'
         })
         .state('orderfill',{
-            url: '/orderfill/:Id',
+            url: '/orderfill/:type/:Id',
             templateUrl: 'ui/orderfill.html',
             controller: 'OrderFillCtrl'
         })
@@ -62,11 +62,6 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
             url: '/servepointlist',
             templateUrl: 'ui/servepointlist.html',
             controller: 'ServePointListCtrl'
-        })
-        .state('servepoint',{
-            url: '/servepoint',
-            templateUrl: 'ui/servepoint.html',
-            controller: 'ServePointCtrl'
         })
         .state('informatlist',{
             url: '/informatlist',
@@ -92,6 +87,11 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
             url: '/activity',
             templateUrl: 'ui/activity.html',
             controller: 'ActivityCtrl'
+        })
+        .state('guide',{
+            url: '/guide',
+            templateUrl: 'ui/guide.html',
+            controller: 'GuideCtrl'
         });
 });
 

@@ -15,11 +15,11 @@
 				<div class="col-xs-9">
 					<h3>{{tourdetail.ticket_name}}</h3>
 					<p>{{tourdetail.ticket_description}}</p>
-					<a ng-click="ticketNotice()">购票须知>></a>
+					<a ng-click="ticketNotice()">购票须知>>{{tourdetail.id}}</a>
 				</div>
 				<div class="col-xs-3">
 				<div class="ticket-pirce pr">
-					<a class="middle">
+					<a class="middle" ui-sref="orderfill({type: 't', Id: tourdetail.id})">
 						<span>￥{{tourdetail.ticket_pirce}}</span><span>起</span><div>购</div>
 					</a>
 					<div class="sawtooth"></div>

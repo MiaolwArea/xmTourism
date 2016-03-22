@@ -1,0 +1,24 @@
+{
+	"err": 0,
+    "msg": "",
+    "data": {
+		"attent": "<p>1、俱乐部提供装备：（每人）头盔、安全裤、主锁两个、八字环一个、抓结一条、四米绳一条。2、公用装备：主绳若干，上升器，护绳套，滑轮，GRIGRI</p>",
+		"recreation": {
+			"title": "吃喝玩乐",
+			"info": [{
+				"image": "./images/info-1.jpg",
+				"name": "吃"
+			},{
+				"image": "./images/info-1.jpg",
+				"name": "喝"
+			},{
+				"image": "./images/info-1.jpg",
+				"name": "玩"
+			},{
+				"image": "./images/info-1.jpg",
+				"name": "乐"
+			}]
+		},
+		"activity": "<p>全民伙拼抢豪礼,各种礼包赠不停。</p><p>抢好房!抢豪礼!抢美食!幸福生活抢先一步！</p>"
+	}
+}

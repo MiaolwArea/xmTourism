@@ -10,29 +10,29 @@
 			<ul class="list-group">
 			  	<li class="list-group-item row">
 			  		<div class="col-xs-3">产品名称</div>
-					<div class="col-xs-5">百年鼓浪屿普通票</div>
-					<div class="col-xs-4 text-right"><a class="link">景点详情</a></div>
+					<div class="col-xs-5">{{orderdetail.title}}</div>
+					<div class="col-xs-4 text-right"><a class="link" ui-sref="tourdetail({Id:data.tid})">景点详情</a></div>
 			  	</li>
 			  	<li class="list-group-item">
 			  		<div class="row">
 						<div class="col-xs-3">游玩日期</div>
-						<div class="col-xs-8">2015-09-30 星期三</div>
+						<div class="col-xs-8">{{orderdetail.date}}</div>
 					</div>
 			  	</li>
 			  	<li class="list-group-item">
 			  		<div class="row">
 						<div class="col-xs-3">购买数量</div>
-						<div class="col-xs-8">1张</div>
+						<div class="col-xs-8">{{orderdetail.num}}张</div>
 					</div>
 			  	</li><li class="list-group-item">
 			  		<div class="row">
 						<div class="col-xs-3">在线支付</div>
-						<div class="col-xs-8"><span class="fred">￥45</span></div>
+						<div class="col-xs-8"><span class="fred">￥{{orderdetail.price}}</span></div>
 					</div>
 			  	</li><li class="list-group-item">
 			  		<div class="row">
 						<div class="col-xs-3">订单号</div>
-						<div class="col-xs-8">2015092900110276</div>
+						<div class="col-xs-8">{{orderdetail.ordernum}}</div>
 					</div>
 			  	</li>
 			  	<li class="list-group-item">
@@ -40,16 +40,16 @@
 			  	</li><li class="list-group-item">
 			  		<div class="row">
 						<div class="col-xs-3">联系人</div>
-						<div class="col-xs-8">赵磊</div>
+						<div class="col-xs-8">{{orderdetail.name}}</div>
 					</div>
 			  	</li><li class="list-group-item">
 			  		<div class="row">
 						<div class="col-xs-3">手机号</div>
-						<div class="col-xs-8">156****6983 </div>
+						<div class="col-xs-8">{{orderdetail.phone}}</div>
 					</div>
 			  	</li>
 			</ul>
-			<button type="button" class="btn big-btn big-btn-green"><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=1210599844&site=qq&menu=yes">客服热线</a></button>
+			<button type="button" class="btn big-btn big-btn-green"><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin={{orderdetail.serve}}&site=qq&menu=yes">客服热线</a></button>
 		</div>
 	</div>
 </div>

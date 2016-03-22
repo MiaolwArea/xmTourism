@@ -1,0 +1,23 @@
+{
+	"err": 0,
+    "msg": "",
+    "data": [{
+		"id": 1,
+		"title": "鼓浪屿 - 中山路 - 曾厝垵一日游",
+		"type": "直达号",
+		"hot": true,
+		"ispay": true,
+		"price": 45,
+		"num": 1,
+		"icon": "./images/icon-1.png"
+	},{
+		"id": 2,
+		"title": "鼓浪屿 - 中山路 - 曾厝垵一日游",
+		"type": "直达号",
+		"hot": true,
+		"ispay": true,
+		"price": 45,
+		"num": 1,
+		"icon": "./images/icon-1.png"
+	}]
+}
