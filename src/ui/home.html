@@ -72,7 +72,7 @@
 							</div>
 						</div>
 					</div>	
-					<div class="col-xs-6" ng-click="open()">
+					<div class="col-xs-6">
 						<div class="thumbnail">
 							<div class="row">
 								<div class="col-xs-8"><a href="">自定义导览</a></div>
@@ -97,7 +97,7 @@
 					<div class="col-xs-6" ng-repeat="data in homeinfos.road.data">
 						<div class="thumbnail">
 							<a ui-sref="tourdetail({Id:data.id})">
-								<img src="{{data.image}}" alt="{{data.title}}">
+								<img ng-src="{{data.image}}" alt="{{data.title}}">
 								<div class="aside-r {{data.activity=='今日可用'? 'green':'red'}}">{{data.activity}}</div>
 						      	<div class="caption">
 						        	<h5>{{data.title}}</h5>
@@ -116,7 +116,7 @@
 					<div class="col-xs-6" ng-repeat="data in homeinfos.itinerary.data">
 						<div class="thumbnail">
 							<a ui-sref="roaddetail({Id:data.id,type:'road'})">
-								<img src="{{data.image}}" alt="{{data.title}}">
+								<img ng-src="{{data.image}}" alt="{{data.title}}">
 								<div class="aside-r {{data.activity=='今日可用'? 'green':'red'}}">{{data.activity}}</div>
 						      	<div class="caption">
 						        	<h5>{{data.title}}</h5>

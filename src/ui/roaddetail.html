@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="collection">
 			<div class="thumbnail"> 
-		    	<img src="images/tourist-1.jpg" alt="鼓浪屿">
+		    	<img ng-src="images/tourist-1.jpg" alt="鼓浪屿">
 		    	<div class="caption">
 		    		<p>{{roaddetail.description}}</p>
 		    		<div class="row">
@@ -24,7 +24,7 @@
 				<div class="col-xs-3"><div class="arrowasideright">第一天</div></div>
 				<div class="col-xs-9 roadplan-word"><span ng-repeat="aa in roaddetail.roadtitle">{{aa}}</span></div>
 			</div>
-			<img src="images/tourist-1.jpg" alt="鼓浪屿">
+			<img ng-src="images/tourist-1.jpg" alt="鼓浪屿">
 			<div class="road-content">
 				<div ng-bind-html="roaddetail.content|to_trusted"></div>
 				<div class="row">

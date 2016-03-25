@@ -85,8 +85,8 @@ gulp.task('copy', function () {
     // var jsSrc = ['./src/font/**/*', './src/scss/*.min.css', './src/libs/angular/*.min.js', './src/libs/angular/angular-ui-router.js',
     //     './src/libs/bootstrap/dist/css/*.min.css', './src/libs/bootstrap/dist/js/*.min.js', './src/libs/jquery/dist/*.min.js',],
         // jsDst = ['./dist/font', './dist/css', './dist/libs'];
-    gulp.src('./src/font/**/*')
-        .pipe(gulp.dest('./dist/font'));
+    gulp.src('./src/fonts/**/*')
+        .pipe(gulp.dest('./dist/fonts'));
     gulp.src('./src/config.ini')
         .pipe(gulp.dest('./dist')); 
     gulp.src('./src/ui/*.html')

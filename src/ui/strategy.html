@@ -4,7 +4,7 @@
 			<a ng-repeat="data in strategy">
 				<div class="thumbnail">
 					<h5 class="fred">{{data.title}}</h5>
-			    	<img src="{{data.image}}" alt="">
+			    	<img ng-src="{{data.image}}" alt="">
 			    	<div class="caption" ng-bind-html="data.content|to_trusted"></div>
 			    </div>
 			</a>

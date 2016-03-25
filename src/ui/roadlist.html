@@ -19,7 +19,7 @@
 		<div class="collection">
 			<a ui-sref="roaddetail({Id:data.id,type:'road'})" ng-repeat="data in roadlist" ng-swipe-left="aa()">
 				<div class="thumbnail">
-			    	<img src="{{data.image}}" alt="{{data.title}}">
+			    	<img ng-src="{{data.image}}" alt="{{data.title}}">
 			    	<div class="caption">
 			    		<p>{{data.description}}</p>
 			    		<div class="row">
