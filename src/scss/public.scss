@@ -2,7 +2,8 @@ $shallowred: #ec624f;
 @import 'font.css';
 @import '../libs/tobe/function';
 /*公共类名*/
-body{font-family: "Microsoft YaHei"}
+html{font-size: 3vw;}
+body{font-family: "Microsoft YaHei";}
 .none{display: none;}
 .fz24 {font-size: 2.4rem;}
 .fz21 {font-size: 2.1rem;}
@@ -35,13 +36,18 @@ body{font-family: "Microsoft YaHei"}
         padding: 0 5px;
     }
 }
+a:focus,a:hover{
+    text-decoration: none;
+    outline: 0px;
+    outline-offset: 0;
+}
 .row{
     margin-right: -5px;
     margin-left: -5px;
 }
 .alert{
     margin-bottom: 0;
-    padding: 10px;
+    padding: 5px;
 }
 
 .carousel img {
@@ -52,7 +58,7 @@ body{font-family: "Microsoft YaHei"}
 .carousel-inner {
     .item{
         >img{
-            height: 175px;
+            height: 54vw;
         }
     }
 }
@@ -82,21 +88,31 @@ body{font-family: "Microsoft YaHei"}
             color: #a3a3a3;
         }
     }
+    h3{
+        font-size: 1.8rem;
+    }
 }
-
+.wrap{
+    min-height: calc(100vh - 80px);
+}
 hr.line {
     height: 1px;
     background: #d7d7d7;
     margin-top: 0;
     width: 80%;
 }
-
+.box{
+    display: table-cell;
+    vertical-align: middle;
+    padding-bottom: 2vw;
+}
 .navs {
     border-bottom: 1px solid #d7d7d7;
     .col-xs-3 {
         padding: 0px 3vw;
     }
     .navs-item {
+        display: table;
         width: 18vw;
         height: 18vw;
         padding-top: 2px;
@@ -104,14 +120,15 @@ hr.line {
     span {
         display: block;
         font-size: 1rem;
-        margin: -2px auto;
         color: #fff;
     }
     i {
         display: block;
-        height: 9vw;
         font-size: 2rem;
         color: #fff;
+    }
+    .img-circle{
+        -webkit-border-radius: 50%;
     }
 }
 
@@ -212,7 +229,7 @@ $themeColorArray: #57a53f #e9b63a #7fd0db $shallowred;
 }
 .more{
     display: block;
-    margin-bottom: 20px;
+    margin: 20px auto;
     div{
         display: inline-block;
         vertical-align: middle;
@@ -285,7 +302,7 @@ del{
         display: block;
         color: #000;
         i{
-            padding: 0 3.5vw;
+            padding: 0 3.3vw;
             border-left:1px solid #B9B7B7;
         }
         a:nth-of-type(1){
@@ -382,7 +399,7 @@ del{
 }
 .backtops{
     position: fixed;
-    bottom: 50px;
+    bottom: 25px;
     right: 10px;
     width: 10vw;
     height: 10vw;
@@ -493,7 +510,7 @@ audio{
     left: -8px;
     width:8px;
     height:75px;
-    background:#fff;
+    background:#f5f5f5;
     background-image:-webkit-gradient(linear,50% 50%,100% 0,from(transparent),color-stop(.5,transparent),color-stop(.5,#f34230),to(#f34230)),
                     -webkit-gradient(linear,50% 50%,100% 100%,from(transparent),color-stop(.5,transparent),color-stop(.5,#f34230),to(#f34230));                               
     background-size:8px 8px;
@@ -507,6 +524,7 @@ audio{
             width: 50vw;
             text-align: center;
             color: #232323;
+            border-radius: 0;
         } 
     }
     
@@ -1016,7 +1034,10 @@ form{
     background-color: #14191c;
     text-align: center;
     padding: 15px 0px;
+    height: 80px;
     font-size: 1rem;
+    z-index: 9;
+    color: #C1C1C1;
 }
 /* =========animate=========== */
 

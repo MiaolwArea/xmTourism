@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>厦门旅游</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
 	<meta name="description" content="厦门旅游, 网上订购, 景点推荐, 路线规划">
 	<meta name="keywords" content="旅游, 厦门, 网上订票">
 	<!-- build:css css/bootstrap.min.css -->
@@ -20,7 +20,7 @@
 	<script type="text/javascript" src="http://api.map.baidu.com/getscript?v=2.0&ak=GKjVLKFYCjItmN8Ubcs22zea&services=&t=20151113040005" class="ng-scope"></script>
 </head>
 <body>
-	<div class="{{AnimateClass}}" ui-view></div>
+	<div class="wrap {{AnimateClass}}" ui-view></div>
 	<footer id="page-footer">
 		<p>Copyright  © 2015厦门旅游</p>
 		<p>技术支持：厦门易尔通网络科技有限公司</p>
@@ -29,7 +29,7 @@
 	<!-- loading js -->
 	<!-- build:js js/main.min.js -->
 	<script type="text/javascript" src="config.ini"></script>
-    <script type="text/javascript" src="libs/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="libs/zepto/zepto.min.js"></script>
     <script src="libs/angular/angular.js"></script>
     <script src="libs/angular/angular-ui-router.js"></script>
     <script src="libs/angular-animate/angular-animate.min.js"></script>

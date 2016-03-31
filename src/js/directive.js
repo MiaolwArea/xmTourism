@@ -3,8 +3,9 @@ routerApp
 	return {
     	restrict:"AE",
     	link:function(scope, element, attrs){
-    		element.bind('click', function(event) {
+    		element.bind('touchstart', function(event) {
     			scope.$apply(attrs.howtoload);
+                event.preventDefault(); 
     		});
         }
     }; 
@@ -17,12 +18,13 @@ routerApp
     	link:function(scope,element,attrs){
 			$(window).scroll(function(){
 				var scrollt = document.documentElement.scrollTop + document.body.scrollTop;
-				if( scrollt >10 ){ 
-					element.fadeIn(400).bind('click',function(){
-						$("html,body").animate({scrollTop:"0px"},200);
+				if( scrollt >10 ){
+					element.css('display', 'block').unbind('tap').bind('tap',function(){
+						$('html,body').scrollTop(0);
+                        return false;
 					});
 				}else{      
-					element.stop().fadeOut(400); 
+					element.css('display', 'none'); 
 				}
 			});
         }
@@ -32,9 +34,9 @@ routerApp
     return {
         restrict: "AE",
         link:function(scope, element, attrs){
-            element.bind('click', function(){
+            element.bind('touchstart', function(){
                 element.addClass('active');
-                element.siblings().removeClass('active');
+                $(this).siblings().removeClass('active');
                 scope.userinfo.price = parseInt(attrs.price);
                 scope.userinfo.date = attrs.date;
                 if (!scope.$$phase) {
@@ -71,15 +73,12 @@ routerApp
 .directive('datepicker', function() {
     return {
         restrict: "AE",
-        template: '<p class="input-group">\
-                        <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />\
-                        <span class="input-group-btn">\
-                            <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>\
-                        </span>\
+        template: '<p>\
+                        <input type="date" class="form-control">\
                     </p>',
         replace: true,
         link:function(scope, element, attrs){
-                scope.today = function() {
+            scope.today = function() {
                 scope.dt = new Date();
             };
             scope.today();
@@ -155,7 +154,7 @@ routerApp
                         <input type="text" class="form-control" ng-model="searchctxt" placeholder="搜索...">\
                         <pre ng-show="searchctxt">\
                             <ul class="searchctxt-list list-group">\
-                                <li class="list-group-item" ng-repeat="result in results track by $index"><a ng-click="searchIn(result.id,result.coordinate)" ng-bind-html="result.name|to_trusted"></a></li>\
+                                <li class="list-group-item" ng-repeat="result in results track by $index"><a ng-touch="searchIn(result.id,result.coordinate)" ng-bind-html="result.name|to_trusted"></a></li>\
                             </ul>\
                             <div ng-show="nodata" class="nodata">无搜索结果！</div>\
                         </pre>\

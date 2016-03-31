@@ -89,12 +89,12 @@
 						</div>
 						<div class="form-group">
 						  	<div class="col-xs-6 text-right">
-							    <button ng-if="action == 'ticket'" type="submit" class="btn big-btn big-btn-red" ng-disabled="myForm.$invalid" ng-click="add()">添加</button>
-							    <button ng-if="action == 'preson'"class="btn big-btn big-btn-red" ng-click="newadd('ticket')">添加成员</button>
+							    <button ng-if="action == 'ticket'" type="submit" class="btn big-btn big-btn-red" ng-disabled="myForm.$invalid" ng-touch="add()">添加</button>
+							    <button ng-if="action == 'preson'"class="btn big-btn big-btn-red" ng-touch="newadd('ticket')">添加成员</button>
 						  	</div>
 						  	<div class="col-xs-6">
-							    <button ng-if="action == 'ticket'" ng-disabled="myForm.$invalid" class="btn big-btn big-btn-red" ng-click="add('preson')">下一步</button>
-							    <button ng-if="action == 'preson'" class="btn big-btn big-btn-red" ng-click="save()">下一步</button>
+							    <button ng-if="action == 'ticket'" ng-disabled="myForm.$invalid" class="btn big-btn big-btn-red" ng-touch="add('preson')">下一步</button>
+							    <button ng-if="action == 'preson'" class="btn big-btn big-btn-red" ng-touch="save()">下一步</button>
 						  	</div>
 						</div>
 					</form>
